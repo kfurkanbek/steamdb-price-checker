@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "SteamDB Price Checker",
+  "version": "1.0",
+  "description": "Shows the lowest recorded price from SteamDB on Steam game pages.",
+  "permissions": [
+    "activeTab",
+    "https://store.steampowered.com/*",
+    "https://steamdb.info/*",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://store.steampowered.com/app/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "browser_action": {
+    "default_title": "SteamDB Price Checker"
+  }
+}
